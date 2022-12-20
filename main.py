@@ -77,7 +77,7 @@ if __name__ == '__main__':
         os.makedirs(save_dir)
     logger.configure(save_dir)
     with open(save_dir + '/args_dict.yaml', 'w') as f:
-        yaml.dump(args.__dict__, f)123
+        yaml.dump(args.__dict__, f)
 
     config = tf.ConfigProto(allow_soft_placement=True)
     tf.GPUOptions(per_process_gpu_memory_fraction=0.1)
