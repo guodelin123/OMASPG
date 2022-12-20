@@ -12,8 +12,8 @@ from common.utils import str2bool, int_or_None, float_or_None
 def parse_args():
     parser = argparse.ArgumentParser("Reinforcement Learning experiments for multiagent environments")
     # Environment args,
-    parser.add_argument("--scenario", type=str, default="Humanoid-v2", help="scenario name")
-    parser.add_argument("--agent-conf", type=str, default='9|8',
+    parser.add_argument("--scenario", type=str, default="HalfCheetah-v2", help="scenario name")
+    parser.add_argument("--agent-conf", type=str, default='2x3',
                         help="See 'https://github.com/schroederdewitt/multiagent_mujoco' for introduction")
     parser.add_argument("--agent-obsk", type=int_or_None, default=None,
                         help="See 'https://github.com/schroederdewitt/multiagent_mujoco' for introduction")
@@ -21,7 +21,7 @@ def parse_args():
                         help="200 for HumanoidStandup and 1000 for the others")
 
     # training parameters, fixed
-    parser.add_argument("--n-epochs", type=int, default=int(10001), help="Total learning epoches")
+    parser.add_argument("--n-epochs", type=int, default=int(4001), help="Total learning epoches")
     parser.add_argument("--epoch-length", type=int, default=int(1000), help="Length of each epoch")
     parser.add_argument("--n-train-repeat", type=int, default=1, help="Number of times per training step")
     parser.add_argument("--update-interval", type=int, default=1, help="Update interval")
@@ -39,14 +39,15 @@ def parse_args():
     parser.add_argument("--squash", type=str2bool, default=True, help="If true, squashing actions to (-1,1)")
     parser.add_argument("--max-grad-norm", type=float_or_None, default=5., help='max norm of gradients')
     parser.add_argument("--huber-delta", type=float_or_None, default=10., help="huber delta if use huber loss")
-    parser.add_argument("--trpo", type=str2bool, default=False, help="If True, the KL-penalty will be used")
+
+    parser.add_argument("--trpo", type=str2bool, default=True, help="If True, the KL-penalty will be used")
     parser.add_argument("--beta-optimizer", type=str, default='adam', help="optimizer of beta")
     parser.add_argument("--beta-lr", type=float, default=1e-4, help="Learning rate for the KL-penalty coefficient")
     parser.add_argument("--delta-base", type=float, default=0.005, help="The disired KL per action dim")
     parser.add_argument("--r-scale", type=float, default=1., help="reward scale in training")
 
     # may be different in different tasks
-    parser.add_argument("--auto-alpha", type=str2bool, default=False,
+    parser.add_argument("--auto-alpha", type=str2bool, default=True,
                         help="If True, alpha will be tuned automatically, otherwise fixed")
     parser.add_argument("--alpha", type=float, default=0.1, help="If auto_alpha is True, this arg will be muted")
 
