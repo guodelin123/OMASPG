@@ -43,7 +43,7 @@ def test_model(load_dir, deter=True, n_test=10, sleep_time=0.01, render=True):
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--load-dir", type=str, default="demos/HalfCheetah")
+    parser.add_argument("--load-dir", type=str, default="demo/HalfCheetah")
     parser.add_argument("--render", type=str2bool, default=False)
     return parser.parse_args()
 
