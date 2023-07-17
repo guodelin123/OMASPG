@@ -1,7 +1,6 @@
 
-# OMASPG: An Off-Policy Multi-Agent Stochastic Policy Gradient Algorithm for Cooperative Continuous Control
+# This is the code for paper titiled 'An Off-Policy Multi-Agent Stochastic Policy Gradient Algorithm for Cooperative Continuous Control' submitted to Neural Networks
 
-This is the code for implementing the OMASPG algorithm,
 It is configured to be run in conjunction with environments from the
 [Multi-Agent MuJoCo (MAMuJoCo)](https://github.com/schroederdewitt/multiagent_mujoco).
 
